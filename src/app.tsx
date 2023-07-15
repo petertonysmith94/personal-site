@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { GlobalReset } from "./components/global-style";
 import { Home } from "./pages/home/home";
 import { createTheme } from "./theme/theme";
 
@@ -8,7 +9,8 @@ export const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-     <Home />
+      <GlobalReset />
+      <Home />
     </ThemeProvider >
   );
 }
