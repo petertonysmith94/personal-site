@@ -3,7 +3,7 @@ import { Home } from "./pages/home/home";
 import { createTheme } from "./theme/theme";
 
 export const App = () => {
-  const mode = 'dark';
+  const mode = 'light';
   const theme = createTheme(mode);
 
   return (
