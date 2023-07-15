@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Divider = styled.hr`
-  border: 3px double #333;
+  border: 3px double ${props => props.theme.accent};
   margin: 0;
 `
 
@@ -22,6 +22,7 @@ export const HeroWrapper = styled.div`
   height: 500px;
   justify-content: space-around;
   align-items: center;
+  background-color: ${ props => props.theme.primary };
 
   @media (min-width: 768px) {
     width: 50%;
@@ -37,11 +38,4 @@ export const HeroImageWrapper = styled.img`
 export const SocialsWrapper = styled.div`
   display: flex;
   margin: 4px;
-`
-
-export const PagesWrapper = styled.div`
-  @media (min-width: 768px) {
-    width: 50%;
-    height: 100vh;
-  }
 `

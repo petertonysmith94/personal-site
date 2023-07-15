@@ -1,11 +1,11 @@
-import { HomeWrapper } from "../../pages/home/home.styles"
+import { PageWrapper } from "./page.styles"
 
 export const Page = ({
   title
 }: {
   title: string
 }) => (
-  <HomeWrapper>
+  <PageWrapper>
     <h1>{ title }</h1>
-  </HomeWrapper>
+  </PageWrapper>
 )

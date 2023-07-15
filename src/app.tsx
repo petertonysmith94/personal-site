@@ -4,7 +4,7 @@ import { Home } from "./pages/home/home";
 import { createTheme } from "./theme/theme";
 
 export const App = () => {
-  const mode = 'light';
+  const mode = 'dark';
   const theme = createTheme(mode);
 
   return (

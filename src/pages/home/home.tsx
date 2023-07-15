@@ -1,25 +1,29 @@
-import { Page } from '../../components/page';
+import { useTheme } from 'styled-components';
+import { Page, Pages } from '../../components/page';
 import { Socials } from '../../components/socials';
 import { socials } from '../../config/socials';
-import { Divider, HeroImageWrapper, HeroWrapper, HomeWrapper, PagesWrapper, SocialsWrapper } from './home.styles';
+import { Divider, HeroImageWrapper, HeroWrapper, HomeWrapper, SocialsWrapper } from './home.styles';
 
 export const Home = () => {
+  const heroImageUrl = `${process.env.PUBLIC_URL}/logo192.png`
+  const theme = useTheme();
+
   return (
     <HomeWrapper>
       <HeroWrapper>
-        <HeroImageWrapper src='%PUBLIC_URL%/logo192.png'/>
+        <HeroImageWrapper src={heroImageUrl} />
         <SocialsWrapper>
-          <Socials socials={socials} color='white' />
+          <Socials socials={socials} color={theme.accent} />
         </SocialsWrapper>
       </HeroWrapper>
 
       <Divider />
 
-      <PagesWrapper>
+      <Pages>
         <Page title='Profile' />
         <Page title='Profile' />
         <Page title='Projects' />
-      </PagesWrapper>
+      </Pages>
     </HomeWrapper>
   );
 }

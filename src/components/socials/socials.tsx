@@ -1,4 +1,5 @@
-import styled, { useTheme } from 'styled-components';
+import { useMemo } from 'react';
+import styled from 'styled-components';
 import { Social } from '../../config/types';
 
 /**
@@ -11,22 +12,24 @@ import { Social } from '../../config/types';
  */
 export const Socials = ({
   socials,
+  color,
 }: {
   socials: Array<Social>,
-  color: string,
+  color?: string | undefined,
 }) => {
-  const theme = useTheme()
   const dimensionContraint = '38px';
+  const resolvedColor = useMemo(() => color ?? 'white', [color])
+  
   return (
     <SocialsContainer>
       {
         socials.map(
           ({ name, icon: IconComponent, url }) => (
-            <SocialLink key={name} href={url}>
+            <SocialLink key={name} href={url} style={{ maxHeight: dimensionContraint }}>
               <IconComponent
                 height={dimensionContraint}
                 width={dimensionContraint}
-                color={theme.primary}
+                color={resolvedColor}
               />
             </SocialLink>
           )
@@ -42,4 +45,10 @@ export const SocialsContainer = styled.div`
 
 export const SocialLink = styled.a`
   display: inline-block;
+  padding: 8px;
+
+  &:hover {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 `
