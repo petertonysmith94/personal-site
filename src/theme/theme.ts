@@ -1,18 +1,5 @@
-import { Theme } from "./types"
-
-const light: Theme = {
-  primary: '#000',
-  secondary: '#000',
-  background: '#fff',
-  text: '#000',
-}
-
-const dark: Theme = {
-  primary: '#fff',
-  secondary: '#fff',
-  background: '#000',
-  text: '#fff',
-}
+import { dark } from "./dark"
+import { light } from "./light"
 
 /**
  * Create the theme based on the mode
