@@ -2,6 +2,7 @@
   "name": "peter.smiths.im",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://petertonysmith94.github.io/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,13 +18,15 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7"
+    "@types/react-dom": "^18.2.7",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "pnpm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
