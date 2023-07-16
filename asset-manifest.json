@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.a6d28c58.js",
+    "main.js": "/static/js/main.ef553c3e.js",
     "static/media/linkedin.svg": "/static/media/linkedin.037950254952ed027ef4f2356e1fe939.svg",
     "static/media/github.svg": "/static/media/github.385e66860ee1e587ad87ae6259499699.svg",
     "index.html": "/index.html",
-    "main.a6d28c58.js.map": "/static/js/main.a6d28c58.js.map"
+    "main.ef553c3e.js.map": "/static/js/main.ef553c3e.js.map"
   },
   "entrypoints": [
-    "static/js/main.a6d28c58.js"
+    "static/js/main.ef553c3e.js"
   ]
 }
