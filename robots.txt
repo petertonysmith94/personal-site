@@ -1,0 +1,3 @@
+# Deny all robots access to the site
+User-agent: *
+Disallow: /
