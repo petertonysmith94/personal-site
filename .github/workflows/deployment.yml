@@ -84,4 +84,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
         with:
-          name: site
+          artifact_name: site
