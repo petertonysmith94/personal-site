@@ -1,0 +1,62 @@
+name: Publish to GitHub Pages
+run-name: ${{ matrix.os }}-node-${{ matrix.node-version }}
+on: [push]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 🔧
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Use PNPM 🔧
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.x
+
+      - name: Configure PNPM cache store path 🔧
+        id: pnpm-cache
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Configure PNPM cache 🔧
+        uses: actions/cache@v3
+        with:
+          path: $(pnpm store path)
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install and Build 🔨
+        run: pnpm install && pnpm run build
+
+      - name: Upload Artifacts 🔺
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: build
+
+  deploy:
+    concurrency: ci-${{ github.ref }}
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Download Artifacts 🔻
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: 'site'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
