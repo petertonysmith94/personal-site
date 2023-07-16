@@ -1,7 +1,7 @@
 export const Profile = () => {
   return (
     <div>
-      Profile Page
+      Profile Page Testing CI
     </div>
   )
 }
