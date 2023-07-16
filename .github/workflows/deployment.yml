@@ -74,7 +74,7 @@ jobs:
 
     # Deploy to the github-pages environment
     environment:
-      artifact_name: site
+      name: site
       url: ${{ steps.deployment.outputs.page_url }}
 
     # Specify runner + deployment step
@@ -83,3 +83,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
+        with:
+          name: site
