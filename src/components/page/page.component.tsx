@@ -1,11 +1,17 @@
-import { PageWrapper } from "./page.styles"
+import { PageTitle, PageWrapper } from "./page.styles"
 
 export const Page = ({
-  title
+  title,
+  component: Component
 }: {
-  title: string
+  title: string,
+  component: () => JSX.Element
 }) => (
   <PageWrapper>
-    <h1>{ title }</h1>
+    <PageTitle>
+      { title }
+    </PageTitle>
+
+    <Component />
   </PageWrapper>
 )
