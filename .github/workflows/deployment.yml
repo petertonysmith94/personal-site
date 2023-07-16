@@ -20,17 +20,17 @@ jobs:
         with:
           version: 6.0.x
 
-      - name: Configure PNPM cache store path 🔧
-        id: pnpm-cache
-        shell: bash
-        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      # - name: Configure PNPM cache store path 🔧
+      #   id: pnpm-cache
+      #   shell: bash
+      #   run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Configure PNPM cache 🔧
-        uses: actions/cache@v3
-        with:
-          path: $(pnpm store path)
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-pnpm-store-
+      # - name: Configure PNPM cache 🔧
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: $(pnpm store path)
+      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      #     restore-keys: ${{ runner.os }}-pnpm-store-
 
       - name: Install and Build 🔨
         run: pnpm install && pnpm run build
