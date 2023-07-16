@@ -1,5 +1,5 @@
 name: Publish to GitHub Pages
-run-name: ${{ matrix.os }}-node-${{ matrix.node-version }}
+run-name: node16
 on: [push]
 permissions:
   contents: write
