@@ -23,6 +23,6 @@ export const day2: AdventDayConfig = {
   },
   solution: {
     attempts: () => attempts,
-    answer: 280
+    answer: 1598415
   }
 }
