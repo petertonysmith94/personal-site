@@ -13,6 +13,7 @@ export type AdventSolutionConfig = {
 
 export type AdventDayConfig = {
   day: number,
+  part?: number;
   url: string,
   title: string,
   question: string;
