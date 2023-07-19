@@ -1,8 +1,9 @@
 import { AdventDayConfig, AdventInputConfig } from "../../types";
 import { attempts as attemptsPart1 } from "./part1";
+import { attempts as attemptsPart2 } from "./part2";
 
 export const input: AdventInputConfig = {
-  url: 'n/a',
+  url: 'No resource',
   // content: 'abcdef', // 609043 
   // content: 'pqrstuv', // 1048970 
   content: 'bgvyzdsv',
@@ -27,5 +28,20 @@ export const day4Part1: AdventDayConfig = {
   solution: {
     attempts: () => attemptsPart1,
     answer: 254575
+  }
+}
+
+export const day4Part2: AdventDayConfig = {
+  day: 3,
+  part: 2,
+  url: '/2015/day/4',
+  title: 'Day 4: The Ideal Stocking Stuffer',
+  question: `
+    Now find one that starts with six zeroes.
+  `,
+  input,
+  solution: {
+    attempts: () => attemptsPart2,
+    answer: 1038736
   }
 }
