@@ -18,7 +18,6 @@ const directionsToLocationCounts = (point: Point, transformationMap: Record<Dire
   let currentLoc: Point = [point[0], point[0]];
 
   return (acc: Record<number, Record<number, number>>, direction: string) => {
-    console.log(direction, transformationMap)
     const transformation = transformationMap[direction as Direction]
     currentLoc = applyTransformation(currentLoc, transformation);
 
