@@ -32,7 +32,7 @@ export const day4Part1: AdventDayConfig = {
 }
 
 export const day4Part2: AdventDayConfig = {
-  day: 3,
+  day: 4,
   part: 2,
   url: '/2015/day/4',
   title: 'Day 4: The Ideal Stocking Stuffer',

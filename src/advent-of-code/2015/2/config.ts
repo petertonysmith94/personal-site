@@ -5,6 +5,7 @@ import { attempts as part2Attempts } from "./part2";
 
 export const day2Part1: AdventDayConfig = {
   day: 2,
+  part: 1,
   url: '/2015/day/2',
   title: 'Day 2 | Part 1: I Was Told There Would Be No Math',
   question: `
@@ -30,6 +31,7 @@ export const day2Part1: AdventDayConfig = {
 
 export const day2Part2: AdventDayConfig = {
   day: 2,
+  part: 2,
   url: '/2015/day/2',
   title: 'Day 2 | Part 2: I Was Told There Would Be No Math',
   question: `
