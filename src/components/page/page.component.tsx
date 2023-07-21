@@ -1,17 +1,11 @@
-import { PageTitle, PageWrapper } from "./page.styles"
+import { PageWrapper } from "./page.styles"
 
 export const Page = ({
-  title,
-  component: Component
+  children
 }: {
-  title: string,
-  component: () => JSX.Element
+  children: React.ReactNode
 }) => (
   <PageWrapper>
-    <PageTitle>
-      { title }
-    </PageTitle>
-
-    <Component />
+    { children }
   </PageWrapper>
 )

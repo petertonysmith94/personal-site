@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useWindow } from "../../hooks/window";
 import { Stepper } from "../stepper";
 import { ChildrenWrapper, PagesWrapper, StepperWrapper } from "./page.styles";
 
-export const Pages = (props: { children: JSX.Element[] }) => {
+export const Pages = (props: { children: React.ReactNode[] }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [width, _height] = useWindow()
 

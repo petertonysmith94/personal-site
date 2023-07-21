@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { GlobalReset, GlobalStyle } from "./components/global-style";
-import { Home } from "./pages/home/home";
-import { createTheme } from "./theme/theme";
+import { GlobalReset, GlobalStyle } from "../components/global-style";
+import { createTheme } from "../theme/theme";
+import { AppContent } from "./app-content";
 
 export const App = () => {
   const mode = 'dark';
@@ -11,7 +11,8 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalReset />
       <GlobalStyle />
-      <Home />
+      
+      <AppContent />
     </ThemeProvider >
   );
 }
