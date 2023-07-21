@@ -5,7 +5,7 @@ import { ChildrenWrapper, PagesWrapper, StepperWrapper } from "./page.styles";
 
 export const Pages = (props: { children: React.ReactNode[] }) => {
   const [currentPage, setCurrentPage] = useState(1)
-  const [width, _height] = useWindow()
+  const [width] = useWindow()
 
   // When mobile, render all children, otherwise just render the current page
   // Super hack to get the profile out the door
