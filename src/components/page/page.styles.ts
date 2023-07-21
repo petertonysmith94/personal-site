@@ -8,7 +8,8 @@ export const PagesWrapper = styled.div`
 
   @media (min-width: 768px) {
     width: 50%;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
   }
 `
@@ -17,17 +18,30 @@ export const PagesWrapper = styled.div`
  * Page
  */
 export const PageWrapper = styled.div`
-  height: 100vh;
+  height: 50vh;
   padding: 38px;
 
   @media (min-width: 768px) {
-    height: 100vh;
+    height: calc(100vh - 100px);
   }
 `
 
 export const PageTitle = styled.h1`
   margin-bottom: 16px;
   font-size: 38px;
-  font-family: 'SF Mono'
+  font-family: 'Roboto', sans-serif;
   color: ${ props => props.theme.accent };
 `
+
+export const ChildrenWrapper = styled.div`
+
+`
+
+export const StepperWrapper = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`
+
