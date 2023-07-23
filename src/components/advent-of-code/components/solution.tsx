@@ -10,7 +10,7 @@ const Attempt = ({
 }) => {
   return (
     <div>
-      <h3>Attempt { index + 1 }</h3>
+      {/* <h3>Attempt { index + 1 }</h3> */}
       { attemptAnswer }
     </div>
   )
