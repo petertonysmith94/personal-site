@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * Pages
  */
-export const PagesWrapper = styled.div`
+export const Pages = styled.div`
   background-color: ${ props => props.theme.secondary };
 
   @media (min-width: 768px) {
@@ -17,31 +17,42 @@ export const PagesWrapper = styled.div`
 /**
  * Page
  */
-export const PageWrapper = styled.div`
-  height: 50vh;
+export const Page = styled.div`
   padding: 38px;
+`
+
+export const H1 = styled.h1`
+  font-family: 'Roboto', sans-serif;
+  color: ${ props => props.theme.accent };
+
+  font-size: 38px;
+  margin-bottom: 16px;
 
   @media (min-width: 768px) {
-    height: calc(100vh - 100px);
+    font-size: 34px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 30px;
+    margin-bottom: 8px;
   }
 `
 
-export const PageTitle = styled.h1`
-  margin-bottom: 16px;
-  font-size: 38px;
-  font-family: 'Roboto', sans-serif;
-  color: ${ props => props.theme.accent };
-`
-
-export const ChildrenWrapper = styled.div`
-
-`
-
-export const StepperWrapper = styled.div`
-  display: none;
+export const P = styled.p`
+  font-family: 'Verdana', sans-serif;
+  color: ${ props => props.theme.neutral1 };
+  font-size: 16px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
-    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    margin-bottom: 6px;
   }
 `
 
