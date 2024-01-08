@@ -1,32 +1,10 @@
-import React, { useMemo, useState } from "react";
-import { useWindow } from "../../hooks/window";
-import { Stepper } from "../stepper";
-import { ChildrenWrapper, PagesWrapper, StepperWrapper } from "./page.styles";
+import React from "react";
+import { PagesWrapper } from "./page.styles";
 
-export const Pages = (props: { children: React.ReactNode[] }) => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [width] = useWindow()
-
-  // When mobile, render all children, otherwise just render the current page
-  // Super hack to get the profile out the door
-  const children = useMemo(
-    () => width <= 768 ? props.children : props.children[currentPage - 1],
-    [props.children, width, currentPage]
-  )
-
+export const Pages = ({ children }: { children: React.ReactNode[] }) => {
   return (
     <PagesWrapper>
-      <ChildrenWrapper>
       { children }
-      </ChildrenWrapper>
-      
-      <StepperWrapper>
-        <Stepper
-          steps={props.children.length}
-          currentStep={currentPage}
-          onChange={setCurrentPage}
-        />
-      </StepperWrapper>
     </PagesWrapper>
   )
 }
