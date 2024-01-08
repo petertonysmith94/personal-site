@@ -1,5 +1,5 @@
 import type { CSSProp } from "styled-components";
-import type { Theme } from './src/theme/types';
+import type { Theme } from './theme/types';
 
 declare module "styled-components" {
  export interface DefaultTheme extends Theme {}
