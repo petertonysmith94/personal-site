@@ -5,6 +5,10 @@ import { Pages, MarkdownPage } from "../components/page";
 import { Socials } from "../components/socials";
 import { config } from "../config";
 import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper } from "./app-content.styles";
+import Profile from '../pages/profile.md'
+import Experience from '../pages/experience.md'
+import Projects from '../pages/projects.md'
+import Contact from '../pages/contact.md'
 
 const AppContent = () => {
   const theme = useTheme();
@@ -26,10 +30,10 @@ const AppContent = () => {
       <Divider />
 
       <Pages>
-        <MarkdownPage children={`# Profile`} />
-        <MarkdownPage children={`# Experience`} />
-        <MarkdownPage children={`# Projects`} />
-        <MarkdownPage children={`# Contact`} />
+        <MarkdownPage children={Profile} />
+        <MarkdownPage children={Experience} />
+        <MarkdownPage children={Projects} />
+        <MarkdownPage children={Contact} />
       </Pages>
     </HomeWrapper>
   );
