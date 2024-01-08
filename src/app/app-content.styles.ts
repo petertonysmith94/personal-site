@@ -30,11 +30,6 @@ export const HeroWrapper = styled.div`
   }
 `
 
-export const HeroImageWrapper = styled.img`
-  width: 200px;
-  height: 200px;
-`
-
 export const SocialsWrapper = styled.div`
   display: flex;
   margin: 4px;

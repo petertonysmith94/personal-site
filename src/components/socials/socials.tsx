@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import styled from 'styled-components';
-import { Social } from '../../config/types';
+import { Social } from '../../types';
 
 /**
  * The socials links take an array of socials and renders them as links
