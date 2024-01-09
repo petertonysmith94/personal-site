@@ -12,7 +12,8 @@ pnpm install
 
 ```sh
 # https://www.npmjs.com/package/svg2png
-svg2png ./src/public/favicon.svg --width=192 --height=192 --output="./public/logo.192.png"
+rm ./public/logo.192.png
+svg2png ./public/favicon.svg --width=192 --height=192 --output="./public/logo.192.png"
 ```
 
 - SVG Based Favicons
