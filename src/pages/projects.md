@@ -29,6 +29,4 @@ I have been overseeing/facilitating the integration of emerging technologies int
 
 ### Village Shop
 
-[Anonymous](https://en.wikipedia.org/wiki/Anonymous_(hacker_group))
-
-Working with a local village shop, that is fully community driven, to get the sense of community everyone needs. Working the till, wholesaler trips, egg requests, done a little bit of everything in my time.
+Working with a local village shop, that is fully community driven, to get the sense of community everyone needs. Working the till, wholesaler trips, egg requests, done a little bit of everything in my time. (not sharing establishment for anonymity reasons)
