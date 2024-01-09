@@ -34,7 +34,7 @@ jobs:
       - name: 📦 Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: "build-${{ github.ref }}"
+          name: "build-artifact-${{ github.sha }}"
           path: build
 
   deploy:
@@ -47,7 +47,7 @@ jobs:
       - name: 📦 Download Build Artifact
         uses: actions/download-artifact@v2
         with:
-          name: "build-${{ github.ref }}"
+          name: "build-artifact-${{ github.sha }}"
           path: build
       
       - name: 🔺 Publish our Build Artifacts
