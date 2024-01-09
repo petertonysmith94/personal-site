@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { AdventDayConfig } from "../../../advent-of-code/types"
+import { AdventDayConfig } from "../types"
 import { Solution } from "./solution"
 
 export const AdventDay = (adventDay: AdventDayConfig) => {

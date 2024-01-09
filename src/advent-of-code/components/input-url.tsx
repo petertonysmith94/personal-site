@@ -1,4 +1,4 @@
-import { AdventInputConfig } from "../../../advent-of-code/types"
+import { AdventInputConfig } from "../types"
 
 export const AdventInputUrl = ({ input }: { input: AdventInputConfig }) => {
   return (

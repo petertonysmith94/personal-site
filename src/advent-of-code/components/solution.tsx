@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { AdventAnswer, AdventAttempt as AdventAttemptFn, AdventInputConfig, AdventSolutionConfig } from "../../../advent-of-code/types"
+import { AdventAnswer, AdventAttempt as AdventAttemptFn, AdventInputConfig, AdventSolutionConfig } from "../types"
 
 const Attempt = ({
   attemptAnswer,
