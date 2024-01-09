@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from './assets/logo.svg';
 import Profile from './pages/profile.md'
 import Experience from './pages/experience.md'
 import Projects from './pages/projects.md'
+import Sources from './pages/projects.md'
 
 const config = {
   logo: Logo,
@@ -22,7 +23,8 @@ const config = {
   pages: [
     Profile,
     Experience,
-    Projects
+    Projects,
+    Sources
   ]
 };
 
