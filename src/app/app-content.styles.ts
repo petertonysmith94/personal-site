@@ -191,7 +191,8 @@ export const Page = styled.div`
 `
 
 export const PageDivider = styled.hr`
-  margin: 0 10px;
+  margin: 30px auto;
+  width: 37.08%;
 `
 
 /**
