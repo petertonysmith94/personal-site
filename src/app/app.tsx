@@ -1,9 +1,9 @@
 import { ThemeProvider, useTheme } from "styled-components";
 import { createTheme } from "../theme/theme";
-import { Socials } from "../components/socials";
 import { config } from "../config";
-import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, Pages, Page, GlobalReset, GlobalStyle } from "./app-content.styles";
+import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper } from "./app-content.styles";
 import { useMemo } from "react";
+import { Socials } from "./socials.component";
 
 const AppContent = () => {
   const theme = useTheme();
@@ -14,6 +14,7 @@ const AppContent = () => {
   const RenderablePages = () => pages.map(page => <>{page()}</>)
   const RenderedPages = useMemo(RenderablePages, [pages]);
 
+
   return (
     <HomeWrapper>
       <HeroWrapper>
@@ -23,10 +24,7 @@ const AppContent = () => {
           color={theme.accent}
         />
         <SocialsWrapper>
-          <Socials
-            socials={socials}
-            color={theme.accent}
-          />
+          <Socials socials={socials} color={theme.accent} size={'38px'} />
         </SocialsWrapper>
       </HeroWrapper>
 

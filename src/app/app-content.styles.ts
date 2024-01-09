@@ -185,5 +185,17 @@ export const Pages = styled.div`
 `
 
 export const Page = styled.div`
-  padding: 0 38px 0 38px;
+`
+
+/**
+ * Socials
+ */
+export const SocialLink = styled.a`
+  display: inline-block;
+  padding: 8px;
+
+  &:hover {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 `
