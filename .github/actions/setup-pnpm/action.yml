@@ -1,26 +1,23 @@
-name: 🏗️ PNPM Setup
-on:
-  workflow_call:
-    inputs:
-        node-version:
-          description: 'Node.js version to use'
-          type: "string"
-          required: true
-          default: '20.x'
+name: Setup PNPM
+description: Setup PNPM package manager
+inputs:
+  node-version:
+    description: "The version of Node.js to use"
+    required: true
+    default: "20.x"
+runs:
+  using: "composite"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
+  steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v3
 
-      - name: Use Node.js 🔧
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ inputs.node-version }}
+    - name: Use Node.js 🔧
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
 
-      # Version supplied from package.json.packageManager fields
-      # https://github.com/pnpm/action-setup/tree/v2/?tab=readme-ov-file#version
-      - name: Use PNPM 🔧
-        uses: pnpm/action-setup@v2
+    # Version supplied from package.json.packageManager fields
+    # https://github.com/pnpm/action-setup/tree/v2/?tab=readme-ov-file#version
+    - name: Use PNPM 🔧
+      uses: pnpm/action-setup@v2
