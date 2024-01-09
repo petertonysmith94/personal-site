@@ -1,9 +1,8 @@
 import { ThemeProvider, useTheme } from "styled-components";
-import { GlobalReset, GlobalStyle } from "../components/global-style";
 import { createTheme } from "../theme/theme";
 import { Socials } from "../components/socials";
 import { config } from "../config";
-import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, Pages, Page } from "./app-content.styles";
+import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, Pages, Page, GlobalReset, GlobalStyle } from "./app-content.styles";
 import ReactMarkdown from "react-markdown";
 import { useMemo } from "react";
 
