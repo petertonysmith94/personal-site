@@ -1,4 +1,4 @@
-name: 🏗️ Build
+name: 🧹 Lint +  🏗️ Build
 on:
   push:
     branches:
@@ -30,6 +30,9 @@ jobs:
 
       - name: Install Dependencies 🔧
         run: pnpm install
+
+      - name: Lint 🧹
+        run: pnpm lint
 
       - name: Build 🔨
         run: pnpm run build
