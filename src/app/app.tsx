@@ -3,29 +3,21 @@ import { GlobalReset, GlobalStyle } from "../components/global-style";
 import { createTheme } from "../theme/theme";
 import { Socials } from "../components/socials";
 import { config } from "../config";
-import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, H1, P, Pages, Page } from "./app-content.styles";
-import Profile from '../pages/profile.md'
-import Experience from '../pages/experience.md'
-import Projects from '../pages/projects.md'
-import Contact from '../pages/contact.md'
+import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, Pages, Page } from "./app-content.styles";
 import ReactMarkdown from "react-markdown";
-
-const MarkdownPage = ({ children }: { children: string }) => (
-  <Page>
-    <ReactMarkdown
-      children={children}
-      components={{
-        h1: ({ node, ...props }) => <H1 {...props} />,
-        p: ({ node, ...props }) => <P {...props} />,
-      }}
-    />
-  </Page>
-)
+import { useMemo } from "react";
 
 const AppContent = () => {
   const theme = useTheme();
 
-  const { logo: Logo, socials } = config;
+  const { logo: Logo, socials, pages } = config;
+
+  // Render the pages 
+  const renderedPages = useMemo(() => pages.map((page, index) => (
+    <Page key={index} >
+      <ReactMarkdown children={page} />
+    </Page>
+  )), [pages]);;
 
   return (
     <HomeWrapper>
@@ -46,10 +38,7 @@ const AppContent = () => {
       <Divider />
 
       <Pages>
-        <MarkdownPage children={Profile} />
-        <MarkdownPage children={Experience} />
-        <MarkdownPage children={Projects} />
-        <MarkdownPage children={Contact} />
+        { renderedPages }
       </Pages>
     </HomeWrapper>
   );
