@@ -5,6 +5,9 @@ import Profile from './pages/profile.md'
 import Experience from './pages/experience.md'
 import Projects from './pages/projects.md'
 import Sources from './pages/projects.md'
+import ReactMarkdown from 'react-markdown';
+
+const markdown = (contents: string) => (<><ReactMarkdown children={contents} /></>);
 
 const config = {
   logo: Logo,
@@ -21,10 +24,10 @@ const config = {
     },
   ],
   pages: [
-    Profile,
-    Experience,
-    Projects,
-    Sources
+    () => markdown(Profile),
+    () => markdown(Experience),
+    () => markdown(Projects),
+    () => markdown(Sources),
   ]
 };
 

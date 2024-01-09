@@ -3,7 +3,6 @@ import { createTheme } from "../theme/theme";
 import { Socials } from "../components/socials";
 import { config } from "../config";
 import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper, Pages, Page, GlobalReset, GlobalStyle } from "./app-content.styles";
-import ReactMarkdown from "react-markdown";
 import { useMemo } from "react";
 
 const AppContent = () => {
@@ -12,11 +11,8 @@ const AppContent = () => {
   const { logo: Logo, socials, pages } = config;
 
   // Render the pages 
-  const renderedPages = useMemo(() => pages.map((page, index) => (
-    <Page key={index} >
-      <ReactMarkdown children={page} />
-    </Page>
-  )), [pages]);;
+  const RenderablePages = () => pages.map(page => <>{page()}</>)
+  const RenderedPages = useMemo(RenderablePages, [pages]);
 
   return (
     <HomeWrapper>
@@ -37,7 +33,7 @@ const AppContent = () => {
       <Divider />
 
       <Pages>
-        { renderedPages }
+        { RenderedPages }
       </Pages>
     </HomeWrapper>
   );
