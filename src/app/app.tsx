@@ -1,7 +1,7 @@
 import { ThemeProvider, useTheme } from "styled-components";
 import { createTheme } from "../theme/theme";
 import { config } from "../config";
-import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper } from "./app-content.styles";
+import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper, PageDivider, Page } from "./app-content.styles";
 import { useMemo } from "react";
 import { Socials } from "./socials.component";
 
@@ -11,7 +11,15 @@ const AppContent = () => {
   const { logo: Logo, socials, pages } = config;
 
   // Render the pages 
-  const RenderablePages = () => pages.map(page => <>{page()}</>)
+  const RenderablePages = () => pages.map((page, index, pages) => (
+    <>
+      <Page>
+        { page() }
+      </Page>
+
+      { index === pages.length - 1 ? null : <PageDivider /> }
+    </>
+  ))
   const RenderedPages = useMemo(RenderablePages, [pages]);
 
 

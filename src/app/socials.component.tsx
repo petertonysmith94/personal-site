@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { SocialLink } from "../components/socials/socials";
 import { IColor, ISize, Social } from "../types";
+import { SocialLink } from "./app-content.styles";
 
 const SocialComponent = ({ name, url, size, color, icon: IconComponent  }: Social & IColor & ISize) => (
   <SocialLink key={name} href={url} style={{ maxHeight: size }}>

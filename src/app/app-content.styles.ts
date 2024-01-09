@@ -176,6 +176,8 @@ export const SocialsWrapper = styled.div`
 export const Pages = styled.div`
   background-color: ${ props => props.theme.secondary };
 
+  padding: 38px;
+
   @media (min-width: 768px) {
     width: 62.92%;
     display: flex;
@@ -185,6 +187,11 @@ export const Pages = styled.div`
 `
 
 export const Page = styled.div`
+
+`
+
+export const PageDivider = styled.hr`
+  margin: 0 10px;
 `
 
 /**
