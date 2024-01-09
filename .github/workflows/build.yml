@@ -19,16 +19,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v3
+    
       - name: 🏗️ PNPM Setup
         uses: ./.github/actions/pnpm-setup.yml
 
-      - name: Install Dependencies 🔧
+      - name: 🔧 Install Dependencies
         run: pnpm install
 
-      - name: Build 🔨
+      - name: 🔨 Build
         run: pnpm run build
 
-      - name: Upload Build Artifact 📦
+      - name: 📦 Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
           name: "build-${{ github.ref }}"
@@ -38,16 +41,16 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: 🛎️ Checkout
         uses: actions/checkout@v3
 
-      - name: Download Build Artifact 📦
+      - name: 📦 Download Build Artifact
         uses: actions/download-artifact@v2
         with:
           name: "build-${{ github.ref }}"
           path: build
       
-      - name: Publish our Build Artifacts 🔺
+      - name: 🔺 Publish our Build Artifacts
         uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
