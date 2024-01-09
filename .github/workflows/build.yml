@@ -1,0 +1,41 @@
+name: 🏗️ Build
+on:
+  push:
+    branches:
+      - main
+      - release/**
+  pull_request:
+    branches:
+      - main
+      - release/**
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      # Version supplied from package.json.packageManager fields
+      # https://github.com/pnpm/action-setup/tree/v2/?tab=readme-ov-file#version
+      - name: Use PNPM 🔧
+        uses: pnpm/action-setup@v2
+
+      - name: Install Dependencies 🔧
+        run: pnpm install
+
+      - name: Build 🔨
+        run: pnpm run build
+
+      - name: Upload our build artifacts 🔺
+        uses: actions/upload-pages-artifact@v2
+        with:
+          name: github-pages
+          path: build
