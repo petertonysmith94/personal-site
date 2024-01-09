@@ -158,13 +158,28 @@ export const HeroWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 500px;
-  justify-content: space-around;
   align-items: center;
   background-color: ${ props => props.theme.primary };
 
   @media (min-width: 768px) {
     width: 37.08%;
     height: auto;
+  }
+`
+
+export const HeroContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto 0;
+
+  @media (min-width: 768px) {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 40px;
+    margin: 0;
+    height: 100vh;
   }
 `
 

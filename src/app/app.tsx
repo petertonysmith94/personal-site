@@ -1,7 +1,7 @@
 import { ThemeProvider, useTheme } from "styled-components";
 import { createTheme } from "../theme/theme";
 import { config } from "../config";
-import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper, PageDivider, Page } from "./app-content.styles";
+import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper, PageDivider, Page, HeroContent } from "./app-content.styles";
 import { useMemo } from "react";
 import { Socials } from "./socials.component";
 
@@ -26,14 +26,16 @@ const AppContent = () => {
   return (
     <HomeWrapper>
       <HeroWrapper>
-        <Logo
-          width={250}
-          height={250}
-          color={theme.accent}
-        />
-        <SocialsWrapper>
-          <Socials socials={socials} color={theme.accent} size={'38px'} />
-        </SocialsWrapper>
+        <HeroContent>
+          <Logo
+            width={250}
+            height={250}
+            color={theme.accent}
+          />
+          <SocialsWrapper>
+            <Socials socials={socials} color={theme.accent} size={'38px'} />
+          </SocialsWrapper>
+        </HeroContent>
       </HeroWrapper>
 
       <Divider />
