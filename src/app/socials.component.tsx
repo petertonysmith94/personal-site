@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IColor, ISize, Social } from "../types";
+import type { IColor, ISize, Social } from "../types";
 import { SocialLink } from "./app-content.styles";
 
 const SocialComponent = ({ name, url, size, color, icon: IconComponent  }: Social & IColor & ISize) => (
@@ -15,7 +15,7 @@ const SocialComponent = ({ name, url, size, color, icon: IconComponent  }: Socia
 export const Socials = ({ socials, color, size }: { socials: Array<Social> } & IColor & ISize) => {
   const Components = useMemo(() => socials.map(
     (social, index) => <SocialComponent key={`social-${index}`} {...social} color={color} size={size} />
-  ), [socials])
+  ), [socials, color, size])
 
   return (<>{ Components }</>)
 }
