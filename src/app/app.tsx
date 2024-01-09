@@ -1,35 +1,47 @@
 import { ThemeProvider, useTheme } from "styled-components";
-import { GlobalReset, GlobalStyle } from "../components/global-style";
 import { createTheme } from "../theme/theme";
-import { Pages, MarkdownPage } from "../components/page";
-import { Socials } from "../components/socials";
 import { config } from "../config";
-import { HomeWrapper, HeroWrapper, Divider, SocialsWrapper } from "./app-content.styles";
+import { HomeWrapper, Divider, SocialsWrapper, Pages, GlobalReset, GlobalStyle, HeroWrapper, PageDivider, Page, HeroContent } from "./app-content.styles";
+import { useMemo } from "react";
+import { Socials } from "./socials.component";
 
 const AppContent = () => {
   const theme = useTheme();
 
-  const { logo: Logo, socials } = config;
+  const { logo: Logo, socials, pages } = config;
+
+  // Render the pages 
+  const RenderablePages = () => pages.map((page, index, pages) => (
+    <>
+      <Page>
+        { page() }
+      </Page>
+
+      { index === pages.length - 1 ? null : <PageDivider /> }
+    </>
+  ))
+  const RenderedPages = useMemo(RenderablePages, [pages]);
+
 
   return (
     <HomeWrapper>
       <HeroWrapper>
-        <Logo color={theme.accent} />
-        <SocialsWrapper>
-          <Socials
-            socials={socials}
+        <HeroContent>
+          <Logo
+            width={250}
+            height={250}
             color={theme.accent}
           />
-        </SocialsWrapper>
+          <SocialsWrapper>
+            <Socials socials={socials} color={theme.accent} size={'38px'} />
+          </SocialsWrapper>
+        </HeroContent>
       </HeroWrapper>
 
       <Divider />
 
       <Pages>
-        <MarkdownPage children={`# Profile`} />
-        <MarkdownPage children={`# Experience`} />
-        <MarkdownPage children={`# Projects`} />
-        <MarkdownPage children={`# Contact`} />
+        { RenderedPages }
       </Pages>
     </HomeWrapper>
   );

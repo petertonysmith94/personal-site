@@ -1,3 +1,3 @@
-export { AdventOfCode } from '../components/advent-of-code';
+export { AdventOfCode } from './components';
 export { adventConfig } from './advent.config';
 

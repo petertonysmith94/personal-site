@@ -26,3 +26,11 @@ export type Social = {
  * Icon can either be a string or an object with light and dark properties (which will be used for light and dark mode respectively)
  */
 export type Icon = React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined; }>
+
+export interface IColor {
+  color: string;
+}
+
+export interface ISize {
+  size: string;
+}
