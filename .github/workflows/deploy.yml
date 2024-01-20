@@ -3,30 +3,39 @@ run-name: 🚀 Deploy
 on:
   workflow_run:
     workflows: ["build"]
-    branches: ["main"]
+    branches: ["main", "release/*"]
     types: 
       - completed
 
-permissions:
-  contents: write
+env:
+  DEPLOY_PREVIEW: ${{ github.event.workflow_run.event == 'pull_request' }}
+  ARTIFACT_NAME: "build-artifact-${{ github.sha }}"
+
+
 
 jobs:
   deploy:
-    name: 🚀 Deploy
+    # Only run if the build was successful
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛎️ Checkout
-        uses: actions/checkout@v3
 
-      - name: 📦 Download Build Artifact
-        uses: actions/download-artifact@v2
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      contents: write
+      id-token: write
+
+    steps:
+      - name:  Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          name: "build-artifact-${{ github.sha }}"
-          path: build
-      
-      - name: 🔺 Publish our Build Artifacts
-        uses: actions/upload-pages-artifact@v2
-        with:
-          name: github-pages
-          path: build
+          artifact_name: ${{ env.ARTIFACT_NAME}}
+          preview: ${{ env.DEPLOY_PREVIEW }}
+
+      - name:  Get the URL for the deployment
+        run: echo "${{ steps.deployment.outputs.page_url }}"
