@@ -1,0 +1,32 @@
+name: deploy
+run-name: 🚀 Deploy
+on:
+  workflow_run:
+    workflows: ["build"]
+    branches: ["main"]
+    types: 
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: 🚀 Deploy
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Download Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: "build-artifact-${{ github.sha }}"
+          path: build
+      
+      - name: 🔺 Publish our Build Artifacts
+        uses: actions/upload-pages-artifact@v2
+        with:
+          name: github-pages
+          path: build
