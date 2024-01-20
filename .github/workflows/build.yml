@@ -35,7 +35,7 @@ jobs:
         run: pnpm run build
 
       - name: 📦 Upload Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           name: "build-artifact-${{ github.sha }}"
           path: build
