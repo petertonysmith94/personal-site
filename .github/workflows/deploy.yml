@@ -3,9 +3,7 @@ run-name: 🚀 Deploy
 
 on:
   workflow_run:
-    workflows:
-      - build
-
+    workflows: [build]
     types:
       - completed
 
