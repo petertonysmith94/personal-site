@@ -1,23 +1,17 @@
 name: deploy
 run-name: 🚀 Deploy
+
 on:
   workflow_run:
-    workflows: ["build"]
-    branches: ["main", "release/*"]
-    types: 
+    workflows: [build]
+    branches: [master]
+    types:
       - completed
-
-env:
-  DEPLOY_PREVIEW: ${{ github.event.workflow_run.event == 'pull_request' }}
-  ARTIFACT_NAME: "build-artifact-${{ github.sha }}"
-
-
 
 jobs:
   deploy:
     # Only run if the build was successful
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master' }}
     name: 🚀 Deploy
     runs-on: ubuntu-latest
     environment:
@@ -30,12 +24,12 @@ jobs:
       id-token: write
 
     steps:
-      - name:  Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ env.ARTIFACT_NAME}}
-          preview: ${{ env.DEPLOY_PREVIEW }}
+          artifact_name: "build-artifact-${{ github.sha }}"
+          preview: false
 
       - name:  Get the URL for the deployment
         run: echo "${{ steps.deployment.outputs.page_url }}"

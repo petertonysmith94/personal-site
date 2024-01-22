@@ -1,14 +1,14 @@
 name: build
-run-name: 🚀 Build
+run-name: 🏗️ Build
 on:
   push:
     branches:
-      - main
+      - master
       - release/**
 
   pull_request:
     branches:
-      - main
+      - master
       - release/**
 
 permissions:
@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    name: 🚀 Build
+    name: 🏗️ Build
     runs-on: ubuntu-latest
     steps:
       - name: 🛎️ Checkout
