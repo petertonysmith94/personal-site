@@ -1,5 +1,5 @@
-name: build
-run-name: 🏗️ Build
+name: build-and-deploy
+run-name: 🏗️ CI/CD
 on:
   push:
     branches:
@@ -39,3 +39,29 @@ jobs:
         with:
           name: "build-artifact-${{ github.sha }}"
           path: build
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    needs: [build]
+
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: "build-artifact-${{ github.sha }}"
+          preview: false
+
+      - name:  Get the URL for the deployment
+        run: echo "${{ steps.deployment.outputs.page_url }}"
